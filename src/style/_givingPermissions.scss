@@ -1,0 +1,17 @@
+    .mainOfGivingPermissions {
+        padding: 1.5em;
+        margin: 1.5em;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+        img {
+            display: flex;
+            justify-content: center;
+            height: 100px;
+            width: 100px;
+            border: 1px solid #7A6B88;
+            background: #ede9f1;
+            border-radius: .5em;
+        }
+    }

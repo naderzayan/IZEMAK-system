@@ -1,0 +1,26 @@
+.footer {
+    background: #7A6B88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    width: 100%;
+    gap: 1em;
+    a {
+        text-decoration: none;
+        color: #ede9f1;
+    }
+    a:hover {
+        color: gold;
+    }
+    span {
+        color: #ede9f1;
+    }
+    .image {
+        height: 50px !important;
+        width: 50px !important;
+        border: none !important;
+        background: none !important;
+    }
+}

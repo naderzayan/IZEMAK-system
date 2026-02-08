@@ -1,0 +1,200 @@
+.mainOfAccessStaff {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #dbcce9;
+  min-height: 100vh;
+  direction: rtl;
+}
+
+.addEmployee {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .Btn {
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+    background-color: #dbcce9;
+    border: 1px  solid #7A6B88;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    a {
+      color: #000;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    svg {
+      font-size: 20px;
+    }
+  }
+  .Btn:hover {
+    background-color: #7A6B88;
+    border: 1px solid #000;
+    a {
+      color: #fff;
+    }
+  }
+
+  .givingPermissions {
+    background: #7A6B88;
+    color: #fff;
+  }
+  .givingPermissions:hover {
+    background: #d2b0f1;
+    color: #000;
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #7A6B88;
+    background: #ede9f1;
+    border-radius: .5em;
+  }
+}
+
+.accessTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fdfdfb;
+
+  svg {
+    font-size: 25px;
+    color: #7A6B88;
+    cursor: pointer;
+  }
+  svg:hover {
+    color: #d2b0f1;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  th {
+    background-color: #7A6B88;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding-bottom: 1em;
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #7A6B88;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding-bottom: 1em;
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #7A6B88;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+
+  .pageNumber.active {
+    background-color: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    font-weight: bold;
+  }
+}
+
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  gap: 1rem;
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7a6b88;
+  }
+
+  .spinner {
+    border: 6px solid #dbcce9;
+    border-top: 6px solid #7a6b88;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  svg {
+    color: #d6b1f8;
+  }
+}
+.deleteBtn:hover {
+  background: none;
+  border: none;
+  svg {
+    color: #7A6B88;
+  }
+}
+
+.confirmButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  .confirmBtn_yes {
+    background: #7A6B88;
+    color: #fff;
+  }
+  .confirmBtn_yes:hover {
+    background: #d2b0f1;
+    color: #000;
+  }
+  .confirmBtn_no {
+    background-color: #7A6B88;
+    color: #fff;
+  }
+  .confirmBtn_no:hover {
+    background: #d2b0f1;
+    color: #000;
+  }
+}

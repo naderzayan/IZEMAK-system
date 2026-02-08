@@ -1,0 +1,70 @@
+.mainOfAddAHotel {
+  min-height: 100vh;
+  background-color: #d6c9e3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+
+  a {
+    img {
+      height: 100px;
+      width: 100px;
+      margin-bottom: 15px;
+      border: 1px solid #7a6d86;
+      background: #ede9f1;
+      border-radius: 0.5em;
+    }
+  }
+
+  h1 {
+    color: #000;
+  }
+
+  .addAHotel {
+    background-color: #7a6d86;
+    width: 100%;
+    max-width: 420px;
+    padding: 2em;
+    border-radius: 0.5em;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      input {
+        height: 3em;
+        border-radius: 0.5em;
+        border: none;
+        padding: 1em;
+      }
+
+      button {
+        margin-top: 10px;
+        height: 2.5em;
+        border-radius: 0.5em;
+        background-color: #d6c9e3;
+        color: #000;
+        cursor: pointer;
+
+        &:hover {
+          border: 1px solid #d6c9e3;
+          background: #7a6d86;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    background-color: #7a6d86;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+}

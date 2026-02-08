@@ -1,0 +1,172 @@
+.mainOfCreateNewParty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d9cbe5;
+  min-height: 100vh;
+  padding: 2em;
+
+  img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #7a6b88;
+    background: #ede9f1;
+    border-radius: 0.5em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+
+  .formContainer {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    padding-bottom: 2em;
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      height: 3em;
+      padding: 0.8em 1em;
+      border-radius: 0.5em;
+      border: 1px solid #7a6b88;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    .invitationText {
+      width: 100%;
+      min-height: 140px;
+      padding: 10px;
+      padding-inline: 1em;
+      box-sizing: border-box;
+      resize: vertical;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    button {
+      background-color: #7a6b88;
+      color: #fff;
+      padding: 0.8em 1.5em;
+      border: 2px solid #7a6b88;
+      border-radius: 0.5em;
+      font-size: large;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #dbcce9;
+        color: #000;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .uploadBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #7a6b88;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 0.5em;
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background: #dbcce9;
+      border: 2px solid #7a6b88;
+      color: #000;
+    }
+  }
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: #d9cbe5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #d9cbe5;
+  border-top: 6px solid #7a6b88;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .mainOfCreateNewParty {
+    padding: 2.5rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    .formContainer {
+      gap: 1.2rem;
+
+      input,
+      select,
+      textarea {
+        font-size: 1rem;
+        height: 3.2rem;
+      }
+
+      .invitationText {
+        min-height: 160px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainOfCreateNewParty {
+    padding: 3rem;
+
+    img {
+      height: 110px;
+      width: 110px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .formContainer {
+      max-width: 600px;
+      gap: 1.4rem;
+
+      button {
+        font-size: 1.05rem;
+        padding: 1rem;
+      }
+    }
+  }
+}

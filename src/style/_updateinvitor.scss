@@ -1,0 +1,65 @@
+.mainOfUpDateInvitor {
+    background: #dbcce9;
+    height: 100vh;
+    padding: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        height: 100px;
+        width: 100px;
+        border: 1px solid #7A6B88;
+        background: #ede9f1;
+        border-radius: .5em;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    label {
+        font-size: 20px;
+    }
+    input {
+        height: 2.5em;
+        width: 100%;
+        padding: .5em;
+        border-radius: .5em;
+        border: 1px solid #000;
+    }
+    .details {
+        padding: .5em;
+    }
+    select {
+        height: 2.5em;
+        width: 100%;
+        padding: .5em;
+        border-radius: .5em;
+        border: 1px solid #000;
+    }
+    .condition {
+        padding: .5em;
+        display: flex;
+        justify-content: center;
+        gap: .5em;
+    }
+    .submit {
+        padding: 1em;
+        padding-bottom: 8em;
+        display: flex;
+        justify-content: center;
+    }
+    button {
+        height: 2.5em;
+        width: 50%;
+        font-size: 20px;
+        background: #7A6B88;
+        color: #fff;
+        border: 1px solid #000;
+        border-radius: .5em;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #dbcce9;
+        border: 1px solid #000;
+        color: #000;
+    }
+}

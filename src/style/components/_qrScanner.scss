@@ -1,0 +1,12 @@
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  input {
+    height: 2.5em;
+    border: 1px solid #7a6b88;
+    border-radius: 1em;
+    padding-inline: 1em;
+  }
+}

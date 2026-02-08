@@ -1,0 +1,514 @@
+.mainOfMainPartyData {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #dbcce9;
+  min-height: 100vh;
+  direction: rtl;
+}
+
+.addParty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .Btn {
+    background-color: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    svg {
+      font-size: 25px;
+    }
+  }
+  .Btn:hover {
+    background-color: #7A6B88;
+    border: 1px solid #000;
+    a {
+      color: #fff;
+    }
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #7A6B88;
+    background: #ede9f1;
+    border-radius: .5em;
+  }
+
+  .search {
+    display: flex;
+    gap: 0.5rem;
+    button {
+      background: #dbcce9;
+      border: 1px solid #000;
+      color: #000;
+    }
+    button:hover {
+      background: #7A6B88;
+      color: #fff;
+    }
+    svg {
+      transform: translate(-2rem,.5rem);
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid #7A6B88;
+      border-radius: 5px;
+      padding-inline-start: 2em;
+    }
+
+    .searchBtn {
+      background-color: #7A6B88;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+  }
+}
+
+.partyTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fdfdfb;
+
+  .EditButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 0.8rem;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #7A6B88;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 2rem;
+  }
+  .EditButton {
+    color: #000;
+  }
+  .AddEmployee {
+    background: #dbcce9;
+    color: #000;
+    padding: .6em;
+    border: 1px solid #000;
+    border-radius: .5em;
+    cursor: pointer;
+  }
+  .AddEmployee:hover {
+    background: #7A6B88;
+    color: #fff;
+  }
+  .editBtn {
+    background: none;
+    border: none;
+    svg {
+      color: #000;
+      font-size: 25px;
+    }
+  }
+  .deleteBtn {
+    background: none;
+    border: none;
+    svg {
+      color: #000;
+      font-size: 25px;
+    }
+  }
+  .deleteBtn:hover {
+    background: none;
+    border: none;
+    svg {
+      color: #000;
+      font-size: 25px;
+    }
+  }
+
+  .employeeCell {
+    position: relative;
+  }
+
+  .employeeDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    background: #dbcce9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    min-width: 180px;
+    border-radius: 6px;
+  }
+
+  .employeeItem {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .employeeBtn {
+    background: transparent;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+  }
+
+  .employeeBtn:hover,
+  .employeeItem:hover .employeeBtn {
+    padding: .5em;
+    background: #7A6B88;
+    color: #fff;
+  }
+
+  .employeeAdding {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  .assignedList {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .assignedItem {
+    background: #dbcce9;
+    color: #000;
+    padding: .5em;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: .5em;
+    font-size: 18px;
+  }
+
+  .AddMoreBtn {
+    background: transparent;
+    border: 1px solid #7A6B88;
+    color: #7A6B88;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    cursor: pointer;
+  }
+  .AddMoreBtn:hover {
+    background: #7A6B88;
+    color: #000;
+  }
+}
+
+.accessbtn {
+  background: #dbcce9;
+  border: 1px solid #000;
+  svg {
+    color: #000;
+    font-size: 25px;
+  }
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+.accessbtn:hover {
+  background-color: #7A6B88;
+  svg {
+    color: #fff;
+  }
+  p {
+    color: #fff;
+  }
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding-bottom: 1em;
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #7A6B88;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  button:hover {
+    background: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+
+  .pageNumber.active {
+    background-color: #dbcce9;
+    color: #000;
+    border: 1px solid #000;
+    font-weight: bold;
+  }
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal {
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+
+    button {
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .confirmBtn {
+        background-color: #dbcce9;
+        color: #000;
+    }
+    .confirmBtn:hover {
+      background-color: #7A6B88;
+      color: #fff;
+    }
+
+    .cancelBtn {
+        background-color: #dbcce9;
+        color: #000;
+    }
+    .cancelBtn:hover {
+      background-color: #7A6B88;
+      color: #fff;
+    }
+}
+
+.loadingSpinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  gap: 1rem;
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7a6b88;
+  }
+
+  .spinner {
+    border: 6px solid #dbcce9;
+    border-top: 6px solid #7a6b88;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalBox {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalBox p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+@media (max-width: 1199px) {
+  .addParty {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .search {
+      width: 100%;
+      justify-content: center;
+
+      input {
+        width: 70%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .addParty {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+
+    .Btn,
+    .accessbtn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .search {
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+
+      svg {
+        transform: none;
+      }
+    }
+
+    img {
+      margin: auto;
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .partyTable {
+    border: none;
+
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid #7A6B88;
+      border-radius: 10px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    tbody td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+      padding: 0.5rem 0;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: #7A6B88;
+    }
+
+    td:last-child {
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .pages {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.4rem 0.7rem;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .modal {
+    width: 90%;
+    max-width: none;
+  }
+}
+
