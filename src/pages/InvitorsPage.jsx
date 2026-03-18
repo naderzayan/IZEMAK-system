@@ -180,21 +180,30 @@ export default function InvitorsPage() {
     }
   };
 
-  const handleExportExcel = () => {
-    const dataForExcel = invitors.map((item) => ({
-      Name: item.name,
-      "Phone Number": item.phoneNumber,
-      "Max Scan": item.maxScan ?? "",
-      Status: item.status,
-    }));
+const handleExportExcel = () => {
+  const dataForExcel = invitors.map((item) => ({
+    Name: item.name,
+    "Phone Number": item.phoneNumber,
+    "Max Scan": item.maxScan ? Number(item.maxScan) : 0,
+    Status: item.status,
+  }));
 
-    const worksheet = XLSX.utils.json_to_sheet(dataForExcel);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Invitors");
+  const worksheet = XLSX.utils.json_to_sheet(dataForExcel);
 
-    const fileName = `${partyId || "party"}.xlsx`;
-    XLSX.writeFile(workbook, fileName);
-  };
+  const range = XLSX.utils.decode_range(worksheet["!ref"]);
+  for (let R = range.s.r + 1; R <= range.e.r; ++R) {
+    const cellAddress = XLSX.utils.encode_cell({ r: R, c: 2 });
+    if (worksheet[cellAddress]) {
+      worksheet[cellAddress].t = "n"; 
+    }
+  }
+
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Invitors");
+
+  const fileName = `${partyId || "party"}.xlsx`;
+  XLSX.writeFile(workbook, fileName);
+};
 
   const handleExportPDF = () => {
     const doc = new jsPDF();
