@@ -363,6 +363,25 @@ export default function MainPartyData() {
         </div>
       ) : (
         <>
+
+          {!searchPerformed && (
+            <div className="pages">
+              {currentPage > 5 && (
+                <button className="prev" onClick={goToPrevPage}>
+                  Previous
+                </button>
+              )}
+              {renderPageNumbers()}
+              <button
+                className="next"
+                onClick={goToNextPage}
+                disabled={currentPage === lastPage}
+              >
+                Next
+              </button>
+            </div>
+          )}
+
           <table className="partyTable">
             <thead>
               <tr>

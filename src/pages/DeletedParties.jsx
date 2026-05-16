@@ -120,6 +120,24 @@ export default function DeletedParties() {
         </div>
       </div>
 
+            <div className="pages">
+        {currentPage > 1 && (
+          <button className="prev" onClick={goToPrevPage}>
+            Previous
+          </button>
+        )}
+
+        {renderPageNumbers()}
+
+        <button
+          className="next"
+          onClick={goToNextPage}
+          disabled={currentPage === lastPage}
+        >
+          Next
+        </button>
+      </div>
+
       <table className="partyTable">
         <thead>
           <tr>
