@@ -33,8 +33,10 @@ export default function MainPartyData() {
   const [employees, setEmployees] = useState([]);
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [addingIndex, setAddingIndex] = useState(null);
+  const [selectedEmployees, setSelectedEmployees] = useState([]);
+  const [selectedPartyId, setSelectedPartyId] = useState(null);
 
-  const baseUrl = "https://www.izemak.com/azimak/public/api/parties/list";
+  const baseUrl = "https://www.izemak.com/azimak/public/api/parties/lists";
 
   const fetchParties = async (page = 1) => {
     setLoading(true);
@@ -49,7 +51,7 @@ export default function MainPartyData() {
       const data = await response.json();
       const normalized = (data.data || []).map((p) => ({
         ...p,
-        employees: Array.isArray(p.employees) ? p.employees : [],
+        employees: Array.isArray(p.employee) ? p.employee : [],
       }));
       setParties(normalized);
       setLastPage(data.meta?.last_page || 1);
@@ -241,40 +243,69 @@ export default function MainPartyData() {
     return pages;
   };
 
-  const toggleDropdown = (index) => {
-    setOpenDropdownIndex((prev) => (prev === index ? null : index));
+  const toggleDropdown = (index, partyId) => {
+    setOpenDropdownIndex((prev) => {
+      const next = prev === index ? null : index;
+      if (next === index) {
+        setSelectedEmployees([]);
+        setSelectedPartyId(partyId);
+      } else {
+        setSelectedEmployees([]);
+        setSelectedPartyId(null);
+      }
+      return next;
+    });
   };
 
-  const addEmployeeToParty = async (partyId, employee) => {
-    const party = parties.find((p) => p.id === partyId);
-    if (party?.employee === employee.name) {
+  const toggleEmployeeSelection = (emp) => {
+    setSelectedEmployees((prev) => {
+      const exists = prev.find((e) => e.id === emp.id);
+      if (exists) return prev.filter((e) => e.id !== emp.id);
+      return [...prev, emp];
+    });
+  };
+
+  const addEmployeesToParty = async (partyId, employees) => {
+    const toAdd = Array.isArray(employees) ? employees : [employees];
+    const party = parties.find((p) => p.id === partyId) || { employees: [] };
+    const uniqueToAdd = toAdd.filter(
+      (emp) => !(party.employee || []).some((e) => e.id === emp.id),
+    );
+
+    if (uniqueToAdd.length === 0) {
       setOpenDropdownIndex(null);
-      alert(`${employee.name} Already in the party`);
+      setSelectedEmployees([]);
       return;
     }
 
     setAddingIndex(partyId);
 
     try {
-      const url = "https://www.izemak.com/azimak/public/api/party/employee";
+      const url = "https://www.izemak.com/azimak/public/api/party/employees";
       const res = await fetch(url, {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ party_id: partyId, employee_id: employee.id }),
+        body: JSON.stringify({
+          party_id: partyId,
+          employee_ids: uniqueToAdd.map((e) => e.id),
+        }),
       });
       const data = await res.json();
 
       if (res.ok || data.success) {
         setParties((prev) =>
           prev.map((p) =>
-            p.id === partyId ? { ...p, employee: employee.name } : p,
+            p.id === partyId
+              ? { ...p, employee: [...(p.employees || []), ...uniqueToAdd] }
+              : p,
           ),
         );
 
         setOpenDropdownIndex(null);
+        setSelectedEmployees([]);
       } else {
         console.error("Add employee failed:", data);
         alert("Failed to add employee");
@@ -363,7 +394,6 @@ export default function MainPartyData() {
         </div>
       ) : (
         <>
-
           {!searchPerformed && (
             <div className="pages">
               {currentPage > 5 && (
@@ -411,38 +441,74 @@ export default function MainPartyData() {
                     <td className="employeeCell">
                       <button
                         className="AddEmployee"
-                        onClick={() => toggleDropdown(index)}
+                        onClick={() => toggleDropdown(index, party.id)}
                       >
                         Add Employee
                       </button>
 
-                      {party.employee != null && (
+                      {party.employee && party.employee.length > 0 ? (
                         <div className="assignedList">
-                          <span className="assignedItem">{party.employee}</span>
+                          {party.employee.map((emp) => (
+                            <div
+                              key={emp.id ?? emp.name ?? emp}
+                              className="assignedItem"
+                            >
+                              {emp.name ?? emp}
+                            </div>
+                          ))}
                         </div>
-                      )}
+                      ) : null}
 
                       {openDropdownIndex === index && (
-                        <ul role="listbox" className="employeeDropdown">
-                          {employees.length > 0 ? (
-                            employees.map((emp) => (
-                              <li key={emp.id} className="employeeItem">
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    addEmployeeToParty(party.id, emp)
-                                  }
-                                  className="employeeBtn"
-                                  disabled={addingIndex === party.id}
-                                >
-                                  {emp.name}
-                                </button>
-                              </li>
-                            ))
-                          ) : (
-                            <li className="employeeItem">No employees</li>
-                          )}
-                        </ul>
+                        <div>
+                          <ul role="listbox" className="employeeDropdown">
+                            {employees.length > 0 ? (
+                              employees.map((emp) => (
+                                <li key={emp.id} className="employeeItem">
+                                  <button
+                                    type="button"
+                                    onClick={() => toggleEmployeeSelection(emp)}
+                                    className={`employeeBtn ${selectedEmployees.find((e) => e.id === emp.id) ? "selected" : ""}`}
+                                    disabled={addingIndex === party.id}
+                                  >
+                                    {selectedEmployees.find(
+                                      (e) => e.id === emp.id,
+                                    )
+                                      ? "✓ "
+                                      : ""}
+                                    {emp.name}
+                                  </button>
+                                </li>
+                              ))
+                            ) : (
+                              <li className="employeeItem">No employees</li>
+                            )}
+                          </ul>
+
+                          <div className="dropdownActions">
+                            <button
+                              className="confirmBtn"
+                              onClick={() =>
+                                addEmployeesToParty(party.id, selectedEmployees)
+                              }
+                              disabled={
+                                addingIndex === party.id ||
+                                selectedEmployees.length === 0
+                              }
+                            >
+                              Add selected
+                            </button>
+                            <button
+                              className="cancelBtn"
+                              onClick={() => {
+                                setOpenDropdownIndex(null);
+                                setSelectedEmployees([]);
+                              }}
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </div>
                       )}
                     </td>
 
