@@ -327,19 +327,6 @@ export default function MainPartyData() {
             <p>new party</p>
           </Link>
         </button>
-        <div className="search">
-          <button className="Btn" onClick={handleSearch}>
-            search
-          </button>
-          <input
-            type="search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={(e) =>
-              e.key === "Enter" && (e.preventDefault(), handleSearch())
-            }
-          />
-        </div>
         <div>
           <button className="Btn">
             <Link to="/qr_code_scanner">
@@ -373,6 +360,19 @@ export default function MainPartyData() {
               <p>Staff</p>
             </Link>
           </button>
+        </div>
+        <div className="search">
+          <button className="Btn" onClick={handleSearch}>
+            search
+          </button>
+          <input
+            type="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={(e) =>
+              e.key === "Enter" && (e.preventDefault(), handleSearch())
+            }
+          />
         </div>
         <div>
           <Link to="/">
