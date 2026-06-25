@@ -322,12 +322,6 @@ export default function MainPartyData() {
     <main className="mainOfMainPartyData">
       <div className="addParty">
         <button className="Btn">
-          <Link to="/giving_permissions">
-            <MdOutlineSecurity />
-            <p>Giving Permissions</p>
-          </Link>
-        </button>
-        <button className="Btn">
           <Link to="/createnewparty">
             <GiPartyPopper />
             <p>new party</p>
