@@ -69,7 +69,7 @@ export default function CreateNewParty() {
   return (
     <main className="mainOfCreateNewParty">
       <Link to="/mainpartydata">
-        <img src="/free-demo.png" alt="logo" />
+        <img src="/اعزمك-01.png" alt="logo" />
       </Link>
 
       <h1>Add a new party</h1>

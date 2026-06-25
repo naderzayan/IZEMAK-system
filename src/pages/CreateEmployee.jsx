@@ -67,7 +67,7 @@ export default function CreateEmployee() {
     <div className="mainOfCreateEmployee">
       <div className="imgContainer">
         <Link to="/access_staff">
-          <img src="free-demo.png" alt="logo" className="img" />
+          <img src="اعزمك-01.png" alt="logo" className="img" />
         </Link>
       </div>
 

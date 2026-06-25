@@ -420,7 +420,7 @@ export default function QRCodeScanner() {
     <main className="mainOfQRCodeScanner">
       <div className="logo">
         <Link to="/mainpartydata">
-          <img src="/free-demo.png" alt="logo" />
+          <img src="/اعزمك-01.png" alt="logo" />
         </Link>
       </div>
       {!scanSuccess && (

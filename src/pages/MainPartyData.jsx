@@ -376,7 +376,7 @@ export default function MainPartyData() {
         </div>
         <div>
           <Link to="/">
-            <img src="/free-demo.png" alt="logo" />
+            <img src="/اعزمك-01.png" alt="logo" />
           </Link>
         </div>
       </div>
