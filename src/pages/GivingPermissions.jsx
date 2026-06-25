@@ -7,7 +7,7 @@ export default function GivingPermissions() {
     <main className="mainOfGivingPermissions">
       <Link to="/mainpartydata">
         <div className="logo">
-          <img src="اعزمك-01.png" alt="" className="" />
+          <img src="free-demo.png" alt="" className="" />
         </div>
       </Link>
       <h1>Giving Permissions</h1>

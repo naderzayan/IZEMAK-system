@@ -56,7 +56,7 @@ export default function AddAHotel() {
   return (
     <div className="mainOfAddAHotel">
       <Link to="/mainpartydata">
-        <img src="/اعزمك-01.png" alt="logo" />
+        <img src="/free-demo.png" alt="logo" />
       </Link>
 
       <div>

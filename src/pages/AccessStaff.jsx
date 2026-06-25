@@ -127,7 +127,7 @@ export default function AccessStaff() {
         </button>
         <div>
           <Link to="/mainpartydata">
-            <img src="/اعزمك-01.png" alt="logo" />
+            <img src="/free-demo.png" alt="logo" />
           </Link>
         </div>
       </div>
